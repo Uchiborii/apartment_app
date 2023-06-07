@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'apartments#new'
+
+  resources :stations, only: [:new, :create, :show, :edit, :update]
+  resources :apartments do
+    collection do
+      post :confirm
+    end
+  end
 end
