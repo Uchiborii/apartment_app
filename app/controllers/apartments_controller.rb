@@ -65,12 +65,12 @@ class ApartmentsController < ApplicationController
         :address,
         :age,
         :content,
-
         stations_attributes: [
+          :id,
           :route_name,
           :station_name,
-          :walking_minutes,
-          ],
+          :walking_minutes
+          ]
         )
     end
 end

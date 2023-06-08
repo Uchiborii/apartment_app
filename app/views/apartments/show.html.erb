@@ -30,7 +30,6 @@
 
 <hr>
 
-<tbody>
   <% n = 0 %>
   <% @apartment.stations.each do |station|%>
     <h3>最寄駅<%= n += 1 %></h3>
@@ -48,7 +47,6 @@
       <%= station.walking_minutes %>
     </p>
 <% end %>
-</tbody>
 
 <%= link_to '編集', edit_apartment_path(@apartment) %> |
 <%= link_to '戻る', apartments_path %>

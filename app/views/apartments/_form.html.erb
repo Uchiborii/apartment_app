@@ -1,4 +1,4 @@
-<%= form_with(model: apartment, local: true) do |form| %>
+<%= form_with(model: @apartment, local: true) do |form| %>
   <% if apartment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
@@ -56,9 +56,8 @@
     <%= station.label :徒歩分数 %>
     <%= station.number_field :walking_minutes %>
   </div>
-   <% x += 1 %>
+  <% x += 1 %>
 <% end %>
-
 
   <div class="actions">
     <%= form.submit '登録する' %>
