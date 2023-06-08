@@ -38,28 +38,27 @@
 
   <Hr>
 
-  <%= form.fields_for :stations do |station| %>
-  <% end %>
+<% x = 1 %>
+<%= form.fields_for :stations do |station| %>
+  <h3>最寄駅<%= x %></h3>
 
-  <% number = 0 %>
-  <% @apartment.stations.each do |station|%>
-  <h2>最寄駅<%= number += 1 %></h2>
-
-    <div class="field">
-    <%= form.label :路線名 %>
-    <%= form.text_field :route_name %>
+  <div class="field">
+    <%= station.label :路線名 %>
+    <%= station.text_field :route_name %>
   </div>
 
   <div class="field">
-    <%= form.label :駅名 %>
-    <%= form.text_field :station_name %>
+    <%= station.label :駅名 %>
+    <%= station.text_field :station_name %>
   </div>
 
   <div class="field">
-    <%= form.label :徒歩分数 %>
-    <%= form.number_field :walking_minutes %>
+    <%= station.label :徒歩分数 %>
+    <%= station.number_field :walking_minutes %>
   </div>
-  <% end %>
+   <% x += 1 %>
+<% end %>
+
 
   <div class="actions">
     <%= form.submit '登録する' %>

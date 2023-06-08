@@ -1,29 +1,54 @@
+<h1>閲覧</h1>
+<br>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>物件名:</strong>
   <%= @apartment.name %>
 </p>
 
 <p>
-  <strong>Rent:</strong>
+  <strong>賃料:</strong>
   <%= @apartment.rent %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @apartment.address %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>築年数:</strong>
   <%= @apartment.age %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>備考:</strong>
   <%= @apartment.content %>
 </p>
+
+<hr>
+
+<tbody>
+  <% n = 0 %>
+  <% @apartment.stations.each do |station|%>
+    <h3>最寄駅<%= n += 1 %></h3>
+
+    <p>
+      <strong>路線名:</strong>
+      <%= station.route_name %>
+    </p>
+    <p>
+      <strong>駅名:</strong>
+      <%= station.station_name %>
+    </p>
+    <p>
+      <strong>徒歩分数:</strong>
+      <%= station.walking_minutes %>
+    </p>
+<% end %>
+</tbody>
 
 <%= link_to '編集', edit_apartment_path(@apartment) %> |
 <%= link_to '戻る', apartments_path %>

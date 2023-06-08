@@ -11,7 +11,7 @@ class ApartmentsController < ApplicationController
 
   def new
     @apartment = Apartment.new
-    2.times { @apartment.stations.build}
+    2.times { @apartment.stations.build }
   end
 
   def edit
@@ -23,6 +23,7 @@ class ApartmentsController < ApplicationController
 
     respond_to do |format|
       if @apartment.save
+        session[:apartment] = @apartment
         format.html { redirect_to @apartment, notice: "物件を登録しました！" }
         format.json { render :show, status: :created, location: @apartment }
       else
